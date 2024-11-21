@@ -1,0 +1,301 @@
+/* Variáveis de cor para facilitar a manutenção */
+:root {
+  --primary-color: #4CAF50; /* Verde claro */
+  --secondary-color: #8BC34A; /* Verde médio */
+  --background-color: #F0F4F7; /* Azul claro */
+  --text-color: #333; /* Cor do texto */
+  --button-color: #4CAF50; /* Cor do botão */
+  --button-hover-color: #45A049; /* Cor do botão ao passar o mouse */
+  --input-border-color: #ccc; /* Cor da borda do input */
+  --header-color: #2196F3; /* Azul mais escuro */
+}
+
+/* Estilo básico do corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+/* Estilo do cabeçalho */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--header-color);
+  color: white;
+  width: 100%;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+header p {
+  margin: 5px 0 0 0;
+  font-size: 1.2em;
+}
+
+/* Estilo do main */
+main {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+main h1, main h2 {
+  color: var(--header-color);
+  margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+form {
+  background: #fff;
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Estilo dos grupos de formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Estilo dos labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Estilo dos inputs e selects */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="date"], input[type="time"], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo dos botões */
+button {
+  background-color: var(--button-color);
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button#btnVoltarCliente, button#btnLogout {
+  background-color: var(--button-color);
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button#btnLogout {
+  background-color: #dc3545;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+button#btnLogout:hover {
+  background-color: #c82333;
+}
+
+/* Estilo da tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table, th, td {
+  border: 1px solid var(--input-border-color);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Estilo das seções de informações e contêineres */
+.container {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+/* Estilo do rodapé */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--header-color);
+  color: white;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Estilo específico para a página de cliente */
+body.cliente-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body.cliente-page header, body.cliente-page footer, body.cliente-page main {
+  width: 100%;
+  text-align: center;
+}
+
+body.cliente-page nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+body.cliente-page nav ul li {
+  margin: 10px 0;
+}
+
+body.cliente-page nav ul li a {
+  display: inline-block;
+  background-color: var(--button-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+body.cliente-page nav ul li a:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Estilo específico para a página de agendamento */
+body.agendamento-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body.agendamento-page header, body.agendamento-page footer, body.agendamento-page main {
+  width: 100%;
+  text-align: center;
+}
+
+body.agendamento-page #cliente_info {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* Estilo específico para a página de edição de cadastro */
+body.editar-cadastro-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body.editar-cadastro-page header, body.editar-cadastro-page footer, body.editar-cadastro-page main {
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  main h1, main h2 {
+    font-size: 1.5em;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="date"], input[type="time"], select {
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  header p {
+    font-size: 0.9em;
+  }
+
+  main h1, main h2 {
+    font-size: 1.2em;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  label {
+    font-size: 0.9em;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="date"], input[type="time"], select {
+    padding: 6px;
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Consulta de Clientes</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script type="module" src="./src/js/consultaClientes.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Nutrifácil</h1>
+    <p>Nutrição fácil, vida saudável</p>
+  </header>
+  <main>
+    <h2>Consulta de Clientes</h2>
+    <div id="resultados">
+      <table id="tabelaClientes">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Gênero</th>
+            <th>Logradouro</th>
+            <th>Número</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>CEP</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button type="button" id="btnLogout">Logout</button>
+  </main>
+  <footer>
+    <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+  </footer>
+</body>
+</html>

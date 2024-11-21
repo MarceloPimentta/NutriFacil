@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login de Usuário</title>
+    <link rel="shortcut icon" href="src/assets/images/icons/favicon-32x32.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="src/js/login.js" type="module" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Nutrifácil</h1>
+        <p>Nutrição fácil, vida saudável</p>
+    </header>
+    <main>
+        <h2>Login de usuário</h2>
+        <form id="formLogin">
+            <label for="EMAIL">Email:</label>
+            <input type="email" id="EMAIL" name="EMAIL" required>
+            <br>
+
+            <label for="SENHA">Senha:</label>
+            <input type="password" id="SENHA" name="SENHA" required>
+            <br>
+
+            <button type="submit" id="btnLogin">Entrar</button>
+            <a href="">Redefinir senha</a>
+        </form>
+    </main>
+    <footer>
+        <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+    </footer>
+</body>
+
+</html>

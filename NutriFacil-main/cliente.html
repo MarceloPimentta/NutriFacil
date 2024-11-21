@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Página do Cliente</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script type="module">
+    import { PROJECT_URL, API_KEY } from './src/js/secrets.js';
+
+    const banco_supabase = supabase.createClient(PROJECT_URL, API_KEY);
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const tipoUsuario = localStorage.getItem('tipoUsuario');
+      const nomeUsuario = localStorage.getItem('nomeUsuario');
+      const IDUsuario = localStorage.getItem('IDUsuario');
+
+      if (tipoUsuario !== 'C') {
+        alert('Acesso não autorizado.');
+        window.location.href = 'index.html';
+      } else {
+        if (!nomeUsuario) {
+          console.error('Nome do usuário não encontrado no localStorage.');
+          alert('Erro ao recuperar os dados do usuário. Faça login novamente.');
+          window.location.href = 'index.html';
+          return;
+        }
+
+        const primeiroNome = nomeUsuario.split(' ')[0];
+        document.getElementById('bemVindo').textContent = `Bem-vindo, ${primeiroNome}!`;
+
+        await armazenarDadosCliente(IDUsuario);
+      }
+    });
+
+    async function armazenarDadosCliente(IDUsuario) {
+      const { data, error } = await banco_supabase
+        .from('TBUsuarios')
+        .select('*')
+        .eq('ID', IDUsuario)
+        .single();
+
+      if (error) {
+        console.error('Erro ao carregar dados do usuário:', error.message);
+        return;
+      }
+
+      localStorage.setItem('clienteNome', data.NOME);
+      localStorage.setItem('clienteEmail', data.EMAIL);
+      localStorage.setItem('clienteCpf', data.CPF);
+      localStorage.setItem('clienteTelefone', data.TELEFONE);
+      localStorage.setItem('clienteSenha', data.SENHA);
+    }
+  </script>
+</head>
+<body class="cliente-page">
+  <header>
+    <h1>Nutrifácil</h1>
+    <p>Nutrição fácil, vida saudável</p>
+  </header>
+  <main>
+    <h1 id="bemVindo">Bem-vindo, Cliente!</h1>
+    <nav>
+      <ul>
+        <li><a href="editar_cadastro.html">Editar Cadastro</a></li>
+        <li><a href="agendamento.html">Agendar Consulta</a></li>
+      </ul>
+    </nav>
+  </main>
+  <footer>
+    <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+  </footer>
+</body>
+</html>

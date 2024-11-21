@@ -1,0 +1,45 @@
+<!-- página do administrador caso o login seja validado  -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Página do Administrador</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tipoUsuario = localStorage.getItem('tipoUsuario');
+            const nomeUsuario = localStorage.getItem('nomeUsuario');
+            if (tipoUsuario !== 'A') {
+                alert('Acesso não autorizado.');
+                window.location.href = 'index.html'; // Redireciona para a página de login
+            } else {
+                if (nomeUsuario) {
+                    const primeiroNome = nomeUsuario.split(' ')[0]; // Obtém o primeiro nome
+                    document.getElementById('bemVindo').textContent = `Bem-vindo, ${primeiroNome}!`;
+                } else {
+                    document.getElementById('bemVindo').textContent = 'Bem-vindo, Administrador!';
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Nutrifácil</h2>
+            <p>Nutrição fácil, vida saudável </p>
+    </header>
+    <main>
+        <h1 id="bemVindo">Bem-vindo, Administrador!</h1>
+        <button type="button"><a href="cadastro.html">Cadastrar novo usuario</a></button>
+        <button type="button"><a href="consultar_cliente.html">Consultar Clientes</a></button>
+        <button type="button"><a href="consultar_agendamento.html">Consultar Agendamentos</a></button>
+    </main>
+    <footer>
+        <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+    </footer>
+</body>
+
+</html>

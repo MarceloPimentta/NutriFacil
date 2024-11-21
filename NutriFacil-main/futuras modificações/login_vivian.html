@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriFácil - Nutrição & Saúde</title>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const userType = document.getElementById("user-type").value;
+            const dashboardFuncionario = document.getElementById("dashboard-funcionario");
+            const dashboardCliente = document.getElementById("dashboard-cliente");
+            const loginContainer = document.querySelector(".login-container");
+
+            loginContainer.classList.add("hidden");
+
+            if (userType === "funcionario") {
+                dashboardFuncionario.classList.remove("hidden");
+            } else {
+                dashboardCliente.classList.remove("hidden");
+            }
+        }
+
+        function resetChecklist() {
+            const checkboxes = document.querySelectorAll('#dashboard-funcionario input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>NutriFácil - Nutrição & Saúde</h1>
+        <p>Bem-vindo ao NutriFácil, seu parceiro para uma vida saudável!</p>
+    </header>
+
+    <main>
+        <!-- Tela de Login -->
+        <div class="section login-container">
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <label for="user-type">Eu sou:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="cliente">Cliente</option>
+                    <option value="funcionario">Funcionário</option>
+                </select>
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+
+        <!-- Dashboard Funcionário -->
+        <div id="dashboard-funcionario" class="section dashboard hidden">
+            <h2>Bem-vindo, Funcionário</h2>
+            <p>Marque as tarefas realizadas:</p>
+            <ul>
+                <li><input type="checkbox"> Atualizar cardápios personalizados.</li>
+                <li><input type="checkbox"> Responder mensagens dos clientes.</li>
+                <li><input type="checkbox"> Agendar consultas com os nutricionistas.</li>
+                <li><input type="checkbox"> Registrar novos clientes no sistema.</li>
+                <li><input type="checkbox"> Revisar histórico de consultas.</li>
+                <li><input type="checkbox"> Preparar relatórios de progresso.</li>
+            </ul>
+            <button onclick="resetChecklist()">Resetar Checklist</button>
+            <button onclick="location.reload()">Sair</button>
+        </div>
+
+        <!-- Dashboard Cliente -->
+        <div id="dashboard-cliente" class="section dashboard hidden">
+            <h2>Bem-vindo, Cliente</h2>
+            <p>Recomendações de consumo:</p>
+            <ul>
+                <li>Frutas frescas (maçã, banana, laranja).</li>
+                <li>Verduras e legumes (espinafre, brócolis, cenoura).</li>
+                <li>Proteínas magras (frango, peixe, ovos).</li>
+                <li>Grãos integrais (arroz integral, aveia, quinoa).</li>
+                <li>Beber pelo menos 2 litros de água por dia.</li>
+            </ul>
+            <button onclick="location.reload()">Sair</button>
+        </div>
+    </main>
+
+    <aside>
+        <!-- Feedbacks de Clientes -->
+        <section class="section feedback-section">
+            <h2>O que nossos clientes dizem</h2>
+            <p><strong>Ana P.</strong>: "Graças ao NutriFácil, consegui alcançar meus objetivos de peso e saúde de forma fácil e prática!"</p>
+            <p><strong>João S.</strong>: "A equipe é incrível e os cardápios são muito bem personalizados. Recomendo!"</p>
+            <p><strong>Maria L.</strong>: "O melhor site de nutrição que já usei. Atendimento rápido e dicas excelentes!"</p>
+        </section>
+
+        <!-- Diferenciais do Site -->
+        <section class="section differentials">
+            <h2>Por que escolher o NutriFácil?</h2>
+            <ul>
+                <li>Planos personalizados de acordo com suas metas e necessidades.</li>
+                <li>Equipe altamente qualificada de nutricionistas.</li>
+                <li>Acompanhamento online com dicas diárias de saúde.</li>
+                <li>Interface simples e fácil de usar.</li>
+                <li>Feedback rápido para todas as suas dúvidas.</li>
+            </ul>
+        </section>
+    </aside>
+</body>
+</html>

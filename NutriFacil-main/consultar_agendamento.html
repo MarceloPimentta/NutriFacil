@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Consulta de Agendamentos</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script type="module" src="./src/js/consultaAgendamentos.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Nutrifácil</h1>
+    <p>Nutrição fácil, vida saudável</p>
+  </header>
+  <main>
+    <h2>Consulta de Agendamentos</h2>
+    <form id="formPesquisaAgendamentos">
+      <div class="form-group">
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" name="cliente">
+          <option value="">Selecione um cliente</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nutricionista">Nutricionista:</label>
+        <select id="nutricionista" name="nutricionista">
+          <option value="">Selecione um nutricionista</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data">
+      </div>
+      <div class="form-group">
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora">
+      </div>
+      <button type="submit">Pesquisar</button>
+    </form>
+    <div id="resultados">
+      <h2>Resultados da Pesquisa</h2>
+      <table id="tabelaAgendamentos">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Nutricionista</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Motivo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button type="button" id="btnLogout">Logout</button>
+  </main>
+  <footer>
+    <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+  </footer>
+</body>
+</html>

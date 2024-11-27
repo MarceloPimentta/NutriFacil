@@ -13,33 +13,36 @@
     <h1>Nutrifácil</h1>
     <p>Nutrição fácil, vida saudável</p>
   </header>
-  <h1>Monitoramento Diário</h1>
-  <div id="cliente_info">Carregando informações do cliente...</div>
-  <form id="formMonitoramento">
-    <label for="mes">Mês:</label>
-    <input type="month" id="mes" required>
-    <br>
-    <table id="tabelaMonitoramento">
-      <thead>
-        <tr>
-          <th>Semana</th>
-          <th>Dia da Semana</th>
-          <th>Alimentação</th>
-          <th>Atividade Física</th>
-          <th>Hidratação</th>
-          <th>Intestino</th>
-          <th>Descanso</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Linhas serão adicionadas aqui dinamicamente -->
-      </tbody>
-    </table>
-    <button type="button" id="adicionarLinha">Adicionar Linha</button><br>
-    <button type="submit">Registrar</button><br>
-    <button type="button" id="btnLogout">Logout</button>
-  </form>
+  <main>
+    <h1>Monitoramento Diário</h1>
+    <div id="cliente_info" class="container">Carregando informações do cliente...</div>
+    <form id="formMonitoramento">
+      <div class="form-group">
+        <label for="mes">Mês:</label>
+        <input type="month" id="mes" required>
+      </div>
+      <table id="tabelaMonitoramento">
+        <thead>
+          <tr>
+            <th>Semana</th>
+            <th>Dia da Semana</th>
+            <th>Alimentação</th>
+            <th>Atividade Física</th>
+            <th>Hidratação</th>
+            <th>Intestino</th>
+            <th>Descanso</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas serão adicionadas aqui dinamicamente -->
+        </tbody>
+      </table>
+      <button type="button" id="adicionarLinha">Adicionar Linha</button><br>
+      <button type="submit">Registrar</button><br>
+      <button type="button" id="btnLogout">Logout</button>
+    </form>
+  </main>
   <footer>
     <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
   </footer>

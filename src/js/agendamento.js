@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const motivoInput = document.getElementById('motivo');
   const btnLogout = document.getElementById('btnLogout');
 
+  // Inicializa o Select2 no campo de seleção de nutricionistas
+  $(nutricionistaSelect).select2({
+    placeholder: 'Selecione um nutricionista',
+    allowClear: true
+  });
+
   obterClienteLogado(clienteInfo);
   listarNutricionistas(nutricionistaSelect);
 
@@ -75,10 +81,8 @@ async function listarNutricionistas(nutricionistaSelect) {
   const nutricionistas = await getNutricionistas();
   if (nutricionistas && nutricionistas.length > 0) {
     nutricionistas.forEach(nutricionista => {
-      const option = document.createElement('option');
-      option.value = nutricionista.ID;
-      option.textContent = nutricionista.NOME;
-      nutricionistaSelect.appendChild(option);
+      const option = new Option(nutricionista.NOME, nutricionista.ID, false, false);
+      $(nutricionistaSelect).append(option).trigger('change');
     });
   } else {
     console.error('Nenhum nutricionista encontrado.');

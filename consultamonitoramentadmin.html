@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <title>Consulta de Monitoramento por Cliente</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script type="module" src="./src/js/consultaMonitoramentoAdmin.js"></script>
 </head>
 <body>
@@ -22,13 +25,31 @@
         <button type="button" id="consultarMonitoramento">Consultar Monitoramento</button>
       </div>
       <div id="resultados">
+        <h3>Alimentação</h3>
+        <table id="tabelaAlimentacao">
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th>Semana</th>
+              <th>Dia da Semana</th>
+              <th>Café da Manhã</th>
+              <th>Colação</th>
+              <th>Almoço</th>
+              <th>Lanche</th>
+              <th>Jantar</th>
+              <th>Ceia</th>
+              <th>Refeição Livre</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <h3>Outras Categorias</h3>
         <table id="tabelaMonitoramento">
           <thead>
             <tr>
               <th>Mês</th>
               <th>Semana</th>
               <th>Dia da Semana</th>
-              <th>Alimentação</th>
               <th>Atividade Física</th>
               <th>Hidratação</th>
               <th>Intestino</th>
@@ -38,8 +59,8 @@
           <tbody></tbody>
         </table>
       </div>
+      <button type="button" id="btnLogout">Logout</button>
     </div>
-    <button type="button" id="btnLogout">Logout</button>
   </main>
   <footer>
     <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>

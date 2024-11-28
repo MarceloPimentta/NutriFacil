@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <title>Consulta de Clientes</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script type="module" src="./src/js/consultaClientes.js"></script>
 </head>
 <body>
@@ -15,7 +18,38 @@
   </header>
   <main>
     <h2>Consulta de Clientes</h2>
+    <form id="formPesquisaClientes">
+      <div class="form-group">
+        <label for="cliente">Pesquisar Cliente:</label>
+        <select id="cliente" name="cliente">
+          <option value="">Selecione um cliente</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="genero">Gênero:</label>
+        <select id="genero" name="genero">
+          <option value="">Selecione um gênero</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro">
+      </div>
+      <div class="form-group">
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade">
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="Digite o telefone">
+      </div>
+      <button type="submit">Pesquisar</button>
+    </form>
     <div id="resultados">
+      <h2>Resultados da Pesquisa</h2>
       <table id="tabelaClientes">
         <thead>
           <tr>

@@ -4,6 +4,7 @@ const banco_supabase = supabase.createClient(PROJECT_URL, API_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
   const formMonitoramento = document.getElementById('formMonitoramento');
+  const tabelaAlimentacao = document.getElementById('tabelaAlimentacao').getElementsByTagName('tbody')[0];
   const tabelaMonitoramento = document.getElementById('tabelaMonitoramento').getElementsByTagName('tbody')[0];
   const adicionarLinhaBtn = document.getElementById('adicionarLinha');
   const clienteInfo = document.getElementById('cliente_info');
@@ -12,62 +13,122 @@ document.addEventListener('DOMContentLoaded', () => {
   obterClienteLogado(clienteInfo);
 
   adicionarLinhaBtn.addEventListener('click', () => {
-    const novaLinha = tabelaMonitoramento.insertRow();
-    novaLinha.innerHTML = `
+    const novaLinhaAlimentacao = tabelaAlimentacao.insertRow();
+    novaLinhaAlimentacao.innerHTML = `
       <td>
         <select class="semana" required>
-          <option value="1">Semana 1</option>
-          <option value="2">Semana 2</option>
-          <option value="3">Semana 3</option>
-          <option value="4">Semana 4</option>
+          <option value="1">S1</option>
+          <option value="2">S2</option>
+          <option value="3">S3</option>
+          <option value="4">S4</option>
         </select>
       </td>
       <td>
         <select class="dia_semana" required>
-          <option value="Segunda">Segunda-feira</option>
-          <option value="Terça">Terça-feira</option>
-          <option value="Quarta">Quarta-feira</option>
-          <option value="Quinta">Quinta-feira</option>
-          <option value="Sexta">Sexta-feira</option>
-          <option value="Sábado">Sábado</option>
-          <option value="Domingo">Domingo</option>
+          <option value="DOM">DOM</option>
+          <option value="SEG">SEG</option>
+          <option value="TER">TER</option>
+          <option value="QUA">QUA</option>
+          <option value="QUI">QUI</option>
+          <option value="SEX">SEX</option>
+          <option value="SAB">SAB</option>
         </select>
       </td>
       <td>
-        <select class="alimentacao" required>
-          <option value="SIM">SIM</option>
-          <option value="NAO">NÃO</option>
+        <select class="cafe" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="colacao" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="almoco" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="lanche" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="jantar" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="ceia" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+      <td>
+        <select class="refeicao_livre" required>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
+        </select>
+      </td>
+    `;
+
+    const novaLinhaMonitoramento = tabelaMonitoramento.insertRow();
+    novaLinhaMonitoramento.innerHTML = `
+      <td>
+        <select class="semana" required>
+          <option value="1">S1</option>
+          <option value="2">S2</option>
+          <option value="3">S3</option>
+          <option value="4">S4</option>
+        </select>
+      </td>
+      <td>
+        <select class="dia_semana" required>
+          <option value="DOM">DOM</option>
+          <option value="SEG">SEG</option>
+          <option value="TER">TER</option>
+          <option value="QUA">QUA</option>
+          <option value="QUI">QUI</option>
+          <option value="SEX">SEX</option>
+          <option value="SAB">SAB</option>
         </select>
       </td>
       <td>
         <select class="atividade" required>
-          <option value="SIM">SIM</option>
-          <option value="NAO">NÃO</option>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
         </select>
       </td>
       <td>
         <select class="hidratacao" required>
-          <option value="SIM">SIM</option>
-          <option value="NAO">NÃO</option>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
         </select>
       </td>
       <td>
         <select class="intestino" required>
-          <option value="SIM">SIM</option>
-          <option value="NAO">NÃO</option>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
         </select>
       </td>
       <td>
         <select class="descanso" required>
-          <option value="SIM">SIM</option>
-          <option value="NAO">NÃO</option>
+          <option value="SIM">✔️</option>
+          <option value="NAO">❌</option>
         </select>
       </td>
       <td><button type="button" class="removerLinha">Remover</button></td>
     `;
 
-    novaLinha.querySelector('.removerLinha').addEventListener('click', () => {
-      tabelaMonitoramento.deleteRow(novaLinha.rowIndex - 1);
+    novaLinhaMonitoramento.querySelector('.removerLinha').addEventListener('click', () => {
+      tabelaAlimentacao.deleteRow(novaLinhaAlimentacao.rowIndex - 1);
+      tabelaMonitoramento.deleteRow(novaLinhaMonitoramento.rowIndex - 1);
     });
   });
 
@@ -75,20 +136,35 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     const mes = document.getElementById('mes').value;
-    const linhas = tabelaMonitoramento.getElementsByTagName('tr');
+    const linhasAlimentacao = tabelaAlimentacao.getElementsByTagName('tr');
+    const linhasMonitoramento = tabelaMonitoramento.getElementsByTagName('tr');
     const cliente = await getClienteLogado();
     if (cliente) {
-      for (let i = 0; i < linhas.length; i++) {
-        const linha = linhas[i];
-        const semana = linha.querySelector('.semana').value;
-        const diaSemana = linha.querySelector('.dia_semana').value;
-        const alimentacao = linha.querySelector('.alimentacao').value;
-        const atividade = linha.querySelector('.atividade').value;
-        const hidratacao = linha.querySelector('.hidratacao').value;
-        const intestino = linha.querySelector('.intestino').value;
-        const descanso = linha.querySelector('.descanso').value;
+      for (let i = 0; i < linhasAlimentacao.length; i++) {
+        const linhaAlimentacao = linhasAlimentacao[i];
+        const linhaMonitoramento = linhasMonitoramento[i];
+        const semana = linhaAlimentacao.querySelector('.semana').value;
+        const diaSemana = linhaAlimentacao.querySelector('.dia_semana').value;
+        const cafe = linhaAlimentacao.querySelector('.cafe').value;
+        const colacao = linhaAlimentacao.querySelector('.colacao').value;
+        const almoco = linhaAlimentacao.querySelector('.almoco').value;
+        const lanche = linhaAlimentacao.querySelector('.lanche').value;
+        const jantar = linhaAlimentacao.querySelector('.jantar').value;
+        const ceia = linhaAlimentacao.querySelector('.ceia').value;
+        const refeicaoLivre = linhaAlimentacao.querySelector('.refeicao_livre').value;
+        const atividade = linhaMonitoramento.querySelector('.atividade').value;
+        const hidratacao = linhaMonitoramento.querySelector('.hidratacao').value;
+        const intestino = linhaMonitoramento.querySelector('.intestino').value;
+        const descanso = linhaMonitoramento.querySelector('.descanso').value;
 
-        await registrarMonitoramento(cliente.ID, mes, semana, diaSemana, alimentacao, atividade, hidratacao, intestino, descanso);
+        // Verificação de duplicidade antes de registrar o monitoramento
+        const duplicado = await verificarDuplicidade(cliente.ID, mes, semana, diaSemana);
+        if (duplicado) {
+          alert(`Já existe um registro para ${diaSemana} da semana ${semana} do mês ${mes}.`);
+          return;
+        }
+
+        await registrarMonitoramento(cliente.ID, mes, semana, diaSemana, cafe, colacao, almoco, lanche, jantar, ceia, refeicaoLivre, atividade, hidratacao, intestino, descanso);
       }
       alert('Monitoramento registrado com sucesso!');
       window.location.href = 'cliente.html';
@@ -137,7 +213,29 @@ async function getClienteLogado() {
   }
 }
 
-async function registrarMonitoramento(idCliente, mes, semana, diaSemana, alimentacao, atividade, hidratacao, intestino, descanso) {
+async function verificarDuplicidade(idCliente, mes, semana, diaSemana) {
+  try {
+    const { data, error } = await banco_supabase
+      .from('tbmonitoramento')
+      .select('*')
+      .eq('idcliente', idCliente)
+      .eq('mes', mes)
+      .eq('semana', semana)
+      .eq('dia_semana', diaSemana);
+
+    if (error) {
+      console.error('Erro ao verificar duplicidade:', error.message);
+      return false;
+    }
+
+    return data.length > 0;
+  } catch (err) {
+    console.error('Erro inesperado ao verificar duplicidade:', err);
+    return false;
+  }
+}
+
+async function registrarMonitoramento(idCliente, mes, semana, diaSemana, cafe, colacao, almoco, lanche, jantar, ceia, refeicaoLivre, atividade, hidratacao, intestino, descanso) {
   try {
     const { error } = await banco_supabase
       .from('tbmonitoramento')
@@ -146,7 +244,13 @@ async function registrarMonitoramento(idCliente, mes, semana, diaSemana, aliment
         mes: mes,
         semana: semana,
         dia_semana: diaSemana,
-        alimentacao: alimentacao,
+        cafe: cafe,
+        colacao: colacao,
+        almoco: almoco,
+        lanche: lanche,
+        jantar: jantar,
+        ceia: ceia,
+        refeicao_livre: refeicaoLivre,
         atividade: atividade,
         hidratacao: hidratacao,
         intestino: intestino,

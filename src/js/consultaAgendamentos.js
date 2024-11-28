@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const nutricionistaSelect = document.getElementById('nutricionista');
   const btnLogout = document.getElementById('btnLogout');
 
+  // Inicializa o Select2 no campo de seleção de clientes e nutricionistas
+  $(clienteSelect).select2({
+    placeholder: 'Selecione um cliente',
+    allowClear: true
+  });
+
+  $(nutricionistaSelect).select2({
+    placeholder: 'Selecione um nutricionista',
+    allowClear: true
+  });
+
   listarClientes(clienteSelect);
   listarNutricionistas(nutricionistaSelect);
 
@@ -34,10 +45,8 @@ async function listarClientes(clienteSelect) {
   const clientes = await getClientes();
   if (clientes && clientes.length > 0) {
     clientes.forEach(cliente => {
-      const option = document.createElement('option');
-      option.value = cliente.ID;
-      option.textContent = cliente.NOME;
-      clienteSelect.appendChild(option);
+      const option = new Option(cliente.NOME, cliente.ID, false, false);
+      $(clienteSelect).append(option).trigger('change');
     });
   } else {
     console.error('Nenhum cliente encontrado.');
@@ -66,10 +75,8 @@ async function listarNutricionistas(nutricionistaSelect) {
   const nutricionistas = await getNutricionistas();
   if (nutricionistas && nutricionistas.length > 0) {
     nutricionistas.forEach(nutricionista => {
-      const option = document.createElement('option');
-      option.value = nutricionista.ID;
-      option.textContent = nutricionista.NOME;
-      nutricionistaSelect.appendChild(option);
+      const option = new Option(nutricionista.NOME, nutricionista.ID, false, false);
+      $(nutricionistaSelect).append(option).trigger('change');
     });
   } else {
     console.error('Nenhum nutricionista encontrado.');

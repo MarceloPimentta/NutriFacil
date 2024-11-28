@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Consulta de Monitoramento por Cliente</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
+  <script type="module" src="./src/js/consultaMonitoramentoAdmin.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Nutrifácil</h1>
+    <p>Nutrição fácil, vida saudável</p>
+  </header>
+  <main>
+    <h2>Consulta de Monitoramento por Cliente</h2>
+    <div class="container">
+      <div class="form-group">
+        <label for="clienteSelect">Selecione o Cliente:</label>
+        <select id="clienteSelect"></select>
+        <button type="button" id="consultarMonitoramento">Consultar Monitoramento</button>
+      </div>
+      <div id="resultados">
+        <table id="tabelaMonitoramento">
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th>Semana</th>
+              <th>Dia da Semana</th>
+              <th>Alimentação</th>
+              <th>Atividade Física</th>
+              <th>Hidratação</th>
+              <th>Intestino</th>
+              <th>Descanso</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <button type="button" id="btnLogout">Logout</button>
+  </main>
+  <footer>
+    <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>
+  </footer>
+</body>
+</html>

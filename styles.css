@@ -202,6 +202,42 @@ body.cliente-page nav ul li a:hover {
   background-color: var(--button-hover-color);
 }
 
+/* Estilo específico para a página de admin */
+body.admin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body.admin-page header, body.admin-page footer, body.admin-page main {
+  width: 100%;
+  text-align: center;
+}
+
+body.admin-page nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+body.admin-page nav ul li {
+  margin: 10px 0;
+}
+
+body.admin-page nav ul li a {
+  display: inline-block;
+  background-color: var(--button-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+body.admin-page nav ul li a:hover {
+  background-color: var(--button-hover-color);
+}
+
 /* Estilo específico para a página de agendamento */
 body.agendamento-page {
   display: flex;

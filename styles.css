@@ -2,12 +2,12 @@
 :root {
   --primary-color: #4CAF50; /* Verde claro */
   --secondary-color: #8BC34A; /* Verde médio */
-  --background-color: #F0F4F7; /* Azul claro */
+  --background-color: #EBEBD3; /* Bege */
   --text-color: #333; /* Cor do texto */
-  --button-color: #4CAF50; /* Cor do botão */
-  --button-hover-color: #45A049; /* Cor do botão ao passar o mouse */
+  --button-color: #083D77; /* Cor do botão */
+  --button-hover-color: #073566; /* Cor do botão ao passar o mouse */
   --input-border-color: #ccc; /* Cor da borda do input */
-  --header-color: #2196F3; /* Azul mais escuro */
+  --header-color: #4A7856; /* Azul mais escuro */
 }
 
 /* Estilo básico do corpo */
@@ -25,6 +25,10 @@ header {
   padding: 20px;
   background-color: var(--header-color);
   color: white;
+  width: 100%;
+}
+
+footer {
   width: 100%;
 }
 
@@ -53,8 +57,8 @@ main h1, main h2 {
 /* Estilo do formulário */
 form {
   background: #fff;
-  max-width: 800px; /* Aumentar o limite máximo para ajustar a tabela */
-  width: 100%;
+  max-width: 400px; /* Aumentar o limite máximo para ajustar a tabela */
+  width: 80%;
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
@@ -63,6 +67,7 @@ form {
   flex-direction: column;
   align-items: stretch;
   overflow-x: auto; /* Adicionar rolagem horizontal */
+  align-content: center;
 }
 
 /* Estilo dos grupos de formulário */
@@ -155,6 +160,7 @@ th {
 
 /* Estilo do rodapé */
 footer {
+  display: block;
   text-align: center;
   padding: 10px;
   background-color: var(--header-color);
@@ -166,9 +172,13 @@ footer p {
   margin: 0;
 }
 
+.monitoramento-page form {
+  max-width: 800px;
+}
+
 /* Estilo específico para a página de cliente */
 body.cliente-page {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -204,11 +214,23 @@ body.cliente-page nav ul li a:hover {
 
 /* Estilo específico para a página de admin */
 body.admin-page {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+.admin-page #btnLogout, .cliente-page #btnLogout {
+  width: 300px;
+}
+
+#voltar {
+  width: 300px;
+}
+
+#tabelaClientes, #tabelaAgendamentos {
+  max-width: 1400px;
 }
 
 body.admin-page header, body.admin-page footer, body.admin-page main {
@@ -217,12 +239,14 @@ body.admin-page header, body.admin-page footer, body.admin-page main {
 }
 
 body.admin-page nav ul {
+  justify-content: center;
+  padding: 10px;
+  display: flex;
   list-style: none;
-  padding: 0;
 }
 
 body.admin-page nav ul li {
-  margin: 10px 0;
+  margin: 10px;
 }
 
 body.admin-page nav ul li a {

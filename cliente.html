@@ -15,6 +15,7 @@
       const tipoUsuario = localStorage.getItem('tipoUsuario');
       const nomeUsuario = localStorage.getItem('nomeUsuario');
       const IDUsuario = localStorage.getItem('IDUsuario');
+      const btnLogout = document.getElementById('btnLogout');
 
       if (tipoUsuario !== 'C') {
         alert('Acesso não autorizado.');
@@ -32,6 +33,11 @@
 
         await armazenarDadosCliente(IDUsuario);
       }
+
+      btnLogout.addEventListener('click', () => {
+          localStorage.clear(); // Limpa o localStorage
+          window.location.href = 'index.html'; // Redireciona para a página de login
+      });
     });
 
     async function armazenarDadosCliente(IDUsuario) {
@@ -68,6 +74,7 @@
         <li><a href="monitoramento.html">Registrar Monitoramento</a></li>
         <li><a href="consulta_monitoramento.html">Consultar Monitoramento</a></li>
       </ul>
+      <button type="button" id="btnLogout">Logout</button>
     </nav>
   </main>
   <footer>

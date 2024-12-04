@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabelaAgendamentos = document.getElementById('tabelaAgendamentos').getElementsByTagName('tbody')[0];
   const clienteSelect = document.getElementById('cliente');
   const nutricionistaSelect = document.getElementById('nutricionista');
-  const btnLogout = document.getElementById('btnLogout');
 
   // Inicializa o Select2 no campo de seleção de clientes e nutricionistas
   $(clienteSelect).select2({
@@ -33,11 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resultados = await pesquisarAgendamentos(cliente, nutricionista, data, hora);
     exibirResultados(resultados);
-  });
-
-  btnLogout.addEventListener('click', () => {
-    localStorage.clear(); // Limpa o localStorage
-    window.location.href = 'index.html'; // Redireciona para a página de login
   });
 });
 

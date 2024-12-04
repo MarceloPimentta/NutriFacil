@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="src/assets/images/icons/favicon-32x32.png" type="image/x-icon">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <title>Consulta de Clientes</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.0/dist/umd/supabase.min.js"></script>
@@ -26,9 +27,9 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="genero">Gênero:</label>
+        <label for="genero">Sexo:</label>
         <select id="genero" name="genero">
-          <option value="">Selecione um gênero</option>
+          <option value="">Selecione um sexo</option>
           <option value="M">Masculino</option>
           <option value="F">Feminino</option>
           <option value="O">Outro</option>
@@ -57,7 +58,7 @@
             <th>Email</th>
             <th>CPF</th>
             <th>Telefone</th>
-            <th>Gênero</th>
+            <th>Sexo</th>
             <th>Logradouro</th>
             <th>Número</th>
             <th>Bairro</th>
@@ -69,7 +70,6 @@
         <tbody></tbody>
       </table>
     </div>
-    <button type="button" id="btnLogout">Logout</button>
   </main>
   <footer>
     <p>Desenvolvido por Gabriel Magalhães Dias, Enzzo Dias Nogueira, Marcelo de Sousa Pimenta</p>

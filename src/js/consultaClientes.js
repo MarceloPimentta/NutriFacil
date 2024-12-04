@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const bairroInput = document.getElementById('bairro');
   const cidadeInput = document.getElementById('cidade');
   const telefoneInput = document.getElementById('telefone');
-  const btnLogout = document.getElementById('btnLogout');
 
   // Inicializa o Select2 no campo de seleção de clientes
   $(clienteSelect).select2({
@@ -31,11 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resultados = await pesquisarClientes(cliente, genero, bairro, cidade, telefone);
     exibirResultados(resultados);
-  });
-
-  btnLogout.addEventListener('click', () => {
-    localStorage.clear(); // Limpa o localStorage
-    window.location.href = 'index.html'; // Redireciona para a página de login
   });
 });
 

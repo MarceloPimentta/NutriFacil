@@ -12,11 +12,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tipoUsuario = localStorage.getItem('tipoUsuario');
+            
             if (tipoUsuario !== 'A') {
                 alert('Acesso não autorizado.');
                 window.location.href = 'index.html';
-            }
+            };
         });
+
+
 
         function buscarCep() {
             var cep = document.getElementById('CEP').value;
@@ -50,79 +53,85 @@
     <main>
         <h2>Cadastro de Usuário</h2>
         <form id="formCadastro">
-            <div class="form-group">
-                <label for="NOME">Nome completo:</label>
-                <input type="text" id="NOME" name="NOME" required>
+            <div>
+
+                <div class="form-group">
+                    <label for="NOME">Nome completo:</label>
+                    <input type="text" id="NOME" name="NOME" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="CPF">CPF:</label>
+                    <input type="text" name="CPF" id="CPF" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="EMAIL">E-mail:</label>
+                    <input type="email" name="EMAIL" id="EMAIL" required>
+                    <span id="email_verificacao"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="GENERO">Sexo:</label>
+                    <select id="GENERO" name="GENERO" required>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outro</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="SENHA">Senha:</label>
+                    <input type="password" id="SENHA" name="SENHA" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="TIPOUSUARIO">Defina o tipo do usuário:</label>
+                    <select name="TIPOUSUARIO" id="TIPOUSUARIO">
+                        <option value="A">Administrador</option>
+                        <option value="C" selected>Cliente</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="TELEFONE">Telefone:</label>
+                    <input type="tel" name="TELEFONE" id="TELEFONE" required>
+                </div>
             </div>
+            
+            <div>
 
-            <div class="form-group">
-                <label for="CPF">CPF:</label>
-                <input type="text" name="CPF" id="CPF" required>
-            </div>
-
-            <div class="form-group">
-                <label for="EMAIL">E-mail:</label>
-                <input type="email" name="EMAIL" id="EMAIL" required>
-                <span id="email_verificacao"></span>
-            </div>
-
-            <div class="form-group">
-                <label for="GENERO">Gênero:</label>
-                <select id="GENERO" name="GENERO" required>
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                    <option value="O">Outro</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="SENHA">Senha:</label>
-                <input type="password" id="SENHA" name="SENHA" required>
-            </div>
-
-            <div class="form-group">
-                <label for="TIPOUSUARIO">Defina o tipo do usuário:</label>
-                <select name="TIPOUSUARIO" id="TIPOUSUARIO">
-                    <option value="A">Administrador</option>
-                    <option value="C" selected>Cliente</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="TELEFONE">Telefone:</label>
-                <input type="tel" name="TELEFONE" id="TELEFONE" required>
-            </div>
-
-            <h2>Endereço</h2>
-
-            <div class="form-group">
-                <label for="CEP">CEP:</label>
-                <input type="text" name="CEP" id="CEP" required onblur="buscarCep()">
-            </div>
-
-            <div class="form-group">
-                <label for="LOGRADOURO">Logradouro:</label>
-                <input type="text" name="LOGRADOURO" id="LOGRADOURO" required>
-            </div>
-
-            <div class="form-group">
-                <label for="NUMERO">Número:</label>
-                <input type="text" name="NUMERO" id="NUMERO" required>
-            </div>
-
-            <div class="form-group">
-                <label for="BAIRRO">Bairro:</label>
-                <input type="text" name="BAIRRO" id="BAIRRO" required>
-            </div>
-
-            <div class="form-group">
-                <label for="CIDADE">Cidade:</label>
-                <input type="text" name="CIDADE" id="CIDADE" required>
-            </div>
-
-            <div class="form-group">
-                <label for="UF">UF:</label>
-                <input type="text" name="UF" id="UF" required>
+                <h2>Endereço</h2>
+    
+                <div class="form-group">
+                    <label for="CEP">CEP:</label>
+                    <input type="text" name="CEP" id="CEP" required onblur="buscarCep()">
+                </div>
+    
+                <div class="form-group">
+                    <label for="LOGRADOURO">Logradouro:</label>
+                    <input type="text" name="LOGRADOURO" id="LOGRADOURO" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="NUMERO">Número:</label>
+                    <input type="text" name="NUMERO" id="NUMERO" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="BAIRRO">Bairro:</label>
+                    <input type="text" name="BAIRRO" id="BAIRRO" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="CIDADE">Cidade:</label>
+                    <input type="text" name="CIDADE" id="CIDADE" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="UF">UF:</label>
+                    <input type="text" name="UF" id="UF" required>
+                </div>
             </div>
 
             <button type="submit" id="btnCadastrar">Cadastrar</button>

@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabelaAlimentacao = document.getElementById('tabelaAlimentacao').getElementsByTagName('tbody')[0];
   const tabelaMonitoramento = document.getElementById('tabelaMonitoramento').getElementsByTagName('tbody')[0];
   const btnConsultar = document.getElementById('consultarMonitoramento');
-  const btnLogout = document.getElementById('btnLogout');
 
   // Inicializa o Select2 no campo de seleção de clientes
   $(clienteSelect).select2({
@@ -20,11 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   btnConsultar.addEventListener('click', () => {
     const clienteID = clienteSelect.value;
     listarMonitoramentos(tabelaAlimentacao, tabelaMonitoramento, clienteID);
-  });
-
-  btnLogout.addEventListener('click', () => {
-    localStorage.clear(); // Limpa o localStorage
-    window.location.href = 'index.html'; // Redireciona para a página de login
   });
 });
 

@@ -6,11 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="src/assets/images/icons/favicon-32x32.png" type="image/x-icon">
     <title>Página do Administrador</title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tipoUsuario = localStorage.getItem('tipoUsuario');
             const nomeUsuario = localStorage.getItem('nomeUsuario');
+            const btnLogout = document.getElementById('btnLogout');
             if (tipoUsuario !== 'A') {
                 alert('Acesso não autorizado.');
                 window.location.href = 'index.html'; // Redireciona para a página de login
@@ -22,6 +24,11 @@
                     document.getElementById('bemVindo').textContent = 'Bem-vindo, Administrador!';
                 }
             }
+
+            btnLogout.addEventListener('click', () => {
+                localStorage.clear(); // Limpa o localStorage
+                window.location.href = 'index.html'; // Redireciona para a página de login
+            });
         });
     </script>
 </head>
@@ -29,7 +36,7 @@
 <body class="admin-page">
     <header>
         <h1>Nutrifácil</h2>
-            <p>Nutrição fácil, vida saudável </p>
+        <p>Nutrição fácil, vida saudável </p>
     </header>
     <main>
         <h1 id="bemVindo">Bem-vindo, Administrador!</h1>
@@ -37,9 +44,12 @@
             <ul>
                 <li><a href="cadastro.html">Cadastrar novo usuario</a></li>
                 <li><a href="consultar_cliente.html">Consultar Clientes</a></li>
+            </ul>
+            <ul>
                 <li><a href="consultar_agendamento.html">Consultar Agendamentos</a></li>
                 <li><a href="consultamonitoramentadmin.html">Consultar Monitoramentos de Cliente</a></li>
             </ul>
+            <button type="button" id="btnLogout">Logout</button>
         </nav>
     </main>
     <footer>

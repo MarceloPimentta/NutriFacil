@@ -60,6 +60,7 @@ O andamento do projeto pode ser acompanhado também pelo deploy das alterações
 - Alunos do curso de Análise e Desenvolvimento de Sistemas  
   - Gabriel Magalhães Dias
   - Enzzo Dias Nogueira
+  - Marcelo de Sousa Pimenta
 
 ---
 
